@@ -17,6 +17,3 @@ const operations = {
 const operate = (a, op, b) => {
     return operations[op] ? operations[op](a, b) : "Invalid operator";
 };
-
-
-console.log(operate(2, '*', 3));
