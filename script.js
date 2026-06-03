@@ -34,12 +34,22 @@ buttons.forEach((button) => {
         updateFirstNumber(button.textContent);
         (operator === undefined) ? display.textContent = firstNumber : display.textContent = secondNumber; 
         } else if(button.classList.contains("operator")) {
+            if(firstNumber !== undefined && operator !== undefined && secondNumber !== undefined){
+                firstNumber = Number(firstNumber);
+                secondNumber = Number(secondNumber);
+                let result = operate(firstNumber, operator, secondNumber);
+                display.textContent = result.toFixed(2);
+                firstNumber = result;
+                secondNumber = undefined;
+                updateOperator(button.textContent);
+            }
             updateOperator(button.textContent);
         } 
         if(button.classList.contains("equals") && firstNumber !== undefined && secondNumber !== undefined && operator !== undefined) {
             firstNumber = Number(firstNumber);
             secondNumber = Number(secondNumber);
-            display.textContent = operate(firstNumber, operator, secondNumber);;
+            let result = operate(firstNumber, operator, secondNumber);
+            display.textContent = result.toFixed(2);
         }
     });
 });
