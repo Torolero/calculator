@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(31, 41, 55);
+    background-color: #1C1C1C;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 
 #calculator-container {
     width: 320px;
-    background-color: #111827;
+    background-color: #505050;
     border-radius: 12px;
     padding: 20px; /*Temporary*/
 }
@@ -49,11 +49,11 @@ body {
 }
 
 .clear-button {
-    background-color: #ef4444;
+    background-color: #dd2d00;
     color: white;
 }
 
 .regular-buttons {
-    background-color: #f0f0f0;
+    background-color: #D4D4D2;
 }
 
