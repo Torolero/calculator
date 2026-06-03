@@ -21,6 +21,7 @@ const operate = (a, op, b) => {
 
 
 const buttons = document.querySelectorAll('button');
+
 const updateFirstNumber = (num) => (operator === undefined) ? (firstNumber === undefined) ? firstNumber = num : firstNumber = String(firstNumber + num) : (secondNumber === undefined) ? secondNumber = num : secondNumber = String(secondNumber + num);
 
 const updateOperator = (op) => operator = op;
@@ -38,10 +39,14 @@ buttons.forEach((button) => {
                 firstNumber = Number(firstNumber);
                 secondNumber = Number(secondNumber);
                 let result = operate(firstNumber, operator, secondNumber);
-                display.textContent = result.toFixed(2);
+                if(typeof result === 'string') {
+                    display.textContent = result;
+                } else {
+                    display.textContent = result.toFixed(2);
+                }
                 firstNumber = result;
                 secondNumber = undefined;
-                updateOperator(button.textContent);
+                Number(result);
             }
             updateOperator(button.textContent);
         } 
@@ -49,8 +54,20 @@ buttons.forEach((button) => {
             firstNumber = Number(firstNumber);
             secondNumber = Number(secondNumber);
             let result = operate(firstNumber, operator, secondNumber);
-            display.textContent = result.toFixed(2);
+            if(typeof result === 'string') {
+                display.textContent = result;
+            } else {
+                display.textContent = result.toFixed(2);
+            }
+            Number(result);
         }
+
+        if(button.classList.contains("clear")) {
+            firstNumber = undefined;
+            operator = undefined;
+            secondNumber = undefined;
+            display.textContent = 0;
+        };
     });
 });
 
