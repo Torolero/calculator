@@ -35,9 +35,13 @@ buttons.forEach((button) => {
         (operator === undefined) ? display.textContent = firstNumber : display.textContent = secondNumber; 
         } else if(button.classList.contains("operator")) {
             updateOperator(button.textContent);
+        } 
+        if(button.classList.contains("equals") && firstNumber !== undefined && secondNumber !== undefined && operator !== undefined) {
+            firstNumber = Number(firstNumber);
+            secondNumber = Number(secondNumber);
+            display.textContent = operate(firstNumber, operator, secondNumber);;
         }
     });
 });
-
 
 
