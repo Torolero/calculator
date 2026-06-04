@@ -27,7 +27,7 @@ const updateFirstNumber = (num) => (operator === undefined) ? (firstNumber === u
 const updateOperator = (op) => operator = op;
 
 //If this is the first number, replace undefine with the number 
-const display = document.querySelector('.display-input');
+const display = document.querySelector('.display-input'); 
 
 buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -46,7 +46,7 @@ buttons.forEach((button) => {
                 }
                 firstNumber = result;
                 secondNumber = undefined;
-                Number(result);
+                // result = Number(result);
             }
             updateOperator(button.textContent);
         } 
@@ -59,7 +59,7 @@ buttons.forEach((button) => {
             } else {
                 display.textContent = result.toFixed(2);
             }
-            Number(result);
+            //  result = Number(result);
         }
 
         if(button.classList.contains("clear")) {
